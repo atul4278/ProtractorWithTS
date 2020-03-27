@@ -2,9 +2,12 @@
   "name": "protractorwithts",
   "version": "1.0.0",
   "description": "Protractor Automation with Typescript",
-  "main": "index.js",
+  "main": "conf.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webdriver-update": "./node_modules/.bin/webdriver-manager update",
+    "webdriver-start": "./node_modules/.bin/webdriver-manager start",
+    "protractor": "./node_modules/.bin/protractor ./src/config/conf.js",
+    "start": "npm run webdriver-start &&npm run protractor"
   },
   "author": "atuljadhav",
   "license": "ISC",

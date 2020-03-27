@@ -11,6 +11,6 @@ describe('POM XYZ App', () =>{
         await landingPage.launchApplication();
         await landingPage.loginAsCustomer();
         await loginPage.login('Harry Potter');
-        expect(homePage.verifyLoginSuccess().then(bool=>{return bool;})).toBe(true);
+        expect(homePage.verifyLoginSuccess()).toBe(true);
     });
 });
