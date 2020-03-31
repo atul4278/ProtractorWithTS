@@ -1,6 +1,7 @@
 import { browser, element, by } from "protractor";
+import { BasePage } from "./xyzBasePage";
 
-export class xyzHomePage {
+export class xyzHomePage extends BasePage{
     private _logoutButton = element(by.buttonText('Logout'));
 
     async verifyLoginSuccess(){
