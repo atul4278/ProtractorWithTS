@@ -10,4 +10,8 @@ export class xyzLoginPage extends BasePage{
         await this.select(this._customer, selectValue);
         await this._loginButton.click();
     }
+
+    async onLoginPage(){
+        return await this._customer.isPresent();
+    }
 }

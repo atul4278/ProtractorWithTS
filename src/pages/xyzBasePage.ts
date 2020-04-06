@@ -1,17 +1,18 @@
 import { browser, by, ElementFinder } from "protractor";
+import { logger } from "../utils/log";
 
 
 export class BasePage{
-    async naviagte(url: string){
-        console.log('Launching Application...');
+
+    async launchApplication(url: string){
+        logger.info('Launching Application...');
         await browser.get(url);
         await browser.manage().window().maximize();
     };
 
     get title(){
         let title = browser.getTitle();
-        console.log(`Page Title: ${title}`);
-        
+        logger.info(`Page Title: ${title}`);
         return title
     };
 
@@ -20,11 +21,19 @@ export class BasePage{
             if (option) {
                 option.getText().then(value => {
                     if (value === selectValue){
-                        console.log(`performing select operation with value ${selectValue}`);
+                        logger.info(`performing select operation with value ${selectValue}`);
                         option.click();
                     };
                 });
             };
         });
     };
+
+    get parentWindowHandle(){
+        return browser.getWindowHandle();
+    }
+
+    get windowHandles(){
+        return browser.getAllWindowHandles();
+    }
 }
